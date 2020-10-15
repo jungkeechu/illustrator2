@@ -1,0 +1,40 @@
+<!doctype html>
+<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script>
+$.get('path.svg', function(data) {
+  $(document.body).append(data.documentElement);
+
+  $('#clickHere').click(function() {
+    $('#click1').hide();
+    $('#response1').fadeIn();
+    $('#reset').show();
+  });
+  
+ 
+  $('#reset').click(function() {
+    $('#response1').hide();
+    $('#reset').hide();
+  });
+
+  // tooltip logic
+  $('#clickHere').hover(
+    function mouseover() {
+      $('#click1').show();
+    }, 
+    function mouseleave() {
+      $('#click1').hide();
+    }
+  );
+
+  $('#clickOtherURL').click(function() {
+    window.location = "https://google.com";
+  });
+});
+
+</script>
+
+<style>
+  #clickHere, #reset, #clickOtherURL {
+    cursor: pointer;
+  }
+</style>
